@@ -1,0 +1,19 @@
+{
+  "name": "web-content-extractor",
+  "version": "1.0.0",
+  "description": "HTTP service to extract and convert webpage content to Markdown.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "express": "^5.1.0",
+    "html-to-md": "^0.8.8",
+    "jsdom": "^26.1.0",
+    "puppeteer": "^24.9.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
