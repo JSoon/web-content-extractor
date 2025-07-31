@@ -8,6 +8,11 @@ import { JSDOM } from 'jsdom';
 puppeteer.use(StealthPlugin());
 
 export async function scrapeToMarkdown(url, savePath = null) {
+  // 检查URL是否以http://或https://开头，若不是则添加
+  if (!/https?:\/\//.test(url)) {
+    url = `http://${url}`;
+  }
+    
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
 
@@ -42,6 +47,12 @@ export async function scrapeToMarkdown(url, savePath = null) {
   }
 }
 
-// const url = 'https://mp.weixin.qq.com/s/0vZvNaAhEQQOqUfg3YiIdQ';
-// const url = 'https://baijiahao.baidu.com/s?id=1833231049264037707';
-// scrapeToMarkdown(url, 'output2.md')
+// // 测试地址
+// const testUrl = [
+//   'https://mp.weixin.qq.com/s/0vZvNaAhEQQOqUfg3YiIdQ',
+//   'https://mp.weixin.qq.com/s/i0nJLIsqQjuzxm5gDxhYcA',
+//   'https://baijiahao.baidu.com/s?id=1833231049264037707',
+//   'https://jwell56.com/news/detail?id=4000'
+// ]
+// const url = 'https://jwell56.com/about/companyIntroduction';
+// scrapeToMarkdown(url, 'output.md')
